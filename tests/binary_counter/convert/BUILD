@@ -33,7 +33,7 @@ cc_test(
     deps =
         [
             ":convert",
-            "@com_google_googletest//:gtest_main",
+            "@googletest//:gtest_main",
         ],
 )
 

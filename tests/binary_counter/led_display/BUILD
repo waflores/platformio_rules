@@ -40,7 +40,7 @@ cc_test(
     deps = [
         ":led_display",
         "//tests/arduino:arduino_interface_mock",
-        "@com_google_googletest//:gtest_main",
+        "@googletest//:gtest_main",
     ],
 )
 

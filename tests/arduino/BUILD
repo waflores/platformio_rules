@@ -29,7 +29,7 @@ cc_library(
     hdrs = ["arduino_interface_mock.h"],
     deps = [
         ":arduino_interface",
-        "@com_google_googletest//:gtest_main",
+        "@googletest//:gtest_main",
     ],
 )
 
