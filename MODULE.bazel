@@ -40,3 +40,15 @@ pt = use_extension("//bazel:transitive.bzl", "platformio_rules_transitive_depend
 ptt = use_extension("//bazel:pip_parse.bzl", "platformio_rules_pip_parse_dependencies")
 
 pttt = use_extension("//bazel:pip_install.bzl", "platformio_rules_pip_install_dependencies")
+
+# Hedron's Compile Commands Extractor for Bazel
+# https://github.com/hedronvision/bazel-compile-commands-extractor
+bazel_dep(name = "hedron_compile_commands", dev_dependency = True)
+git_override(
+    module_name = "hedron_compile_commands",
+    commit = "4f28899228fb3ad0126897876f147ca15026151e",
+    remote = "https://github.com/hedronvision/bazel-compile-commands-extractor.git",
+    # Replace the commit hash (above) with the latest (https://github.com/hedronvision/bazel-compile-commands-extractor/commits/main).
+    # Even better, set up Renovate and let it do the work for you (see "Suggestion: Updates" in the README).
+)
+# bazel run @hedron_compile_commands//:refresh_all

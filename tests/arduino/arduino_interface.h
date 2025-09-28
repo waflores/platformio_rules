@@ -19,7 +19,7 @@
 #ifndef TESTS_ARDUINO_ARDUINO_INTERFACE_H
 #define TESTS_ARDUINO_ARDUINO_INTERFACE_H
 
-#include <stdint.h>
+#include <cstdint>
 
 namespace arduino {
 

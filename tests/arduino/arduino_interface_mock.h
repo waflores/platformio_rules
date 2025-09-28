@@ -18,7 +18,7 @@
 #ifndef TESTS_ARDUINO_ARDUINO_INTERFACE_MOCK_H
 #define TESTS_ARDUINO_ARDUINO_INTERFACE_MOCK_H
 
-#include <stdint.h>
+#include <cstdint>
 
 #include "tests/arduino/arduino_interface.h"
 #include "gmock/gmock.h"
