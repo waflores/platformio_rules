@@ -29,13 +29,11 @@ using arduino::ArduinoInterface;
 // Arduino hardware layer.
 const ArduinoImpl ino = ArduinoImpl();
 
-void setup() {
-    pinMode(TARGET_PIN, OUTPUT);
-}
+void setup() { pinMode(TARGET_PIN, OUTPUT); }
 
-void loop () {
-    ino.DigitalWrite(TARGET_PIN, HIGH);
-    ino.Delay(TIME_HIGH_MS);
-    ino.DigitalWrite(TARGET_PIN, LOW);
-    ino.Delay(TIME_LOW_MS);
+void loop() {
+  ino.DigitalWrite(TARGET_PIN, HIGH);
+  ino.Delay(TIME_HIGH_MS);
+  ino.DigitalWrite(TARGET_PIN, LOW);
+  ino.Delay(TIME_LOW_MS);
 }

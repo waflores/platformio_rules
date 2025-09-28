@@ -1,4 +1,4 @@
-load("//platformio:platformio.bzl", "platformio_project", "platformio_fs")
+load("//platformio:platformio.bzl", "platformio_fs", "platformio_project")
 
 filegroup(
     name = "fs_data",
@@ -20,7 +20,7 @@ platformio_project(
 platformio_fs(
     name = "upload_fs",
     board = "esp32-s3-devkitc-1",
+    data = ":fs_data",
     framework = "arduino",
     platform = "espressif32",
-    data = ":fs_data",
 )

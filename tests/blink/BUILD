@@ -21,14 +21,13 @@ configs = [
     name = "blink_%s" % config["name"],
     src = "blink.cc",
     board = config["board"],
+    build_flags = config["build_flags"],
     framework = "arduino",
     platform = "atmelavr",
-    build_flags = config["build_flags"],
-    programmer = config["programmer"],
     port = config["port"],
+    programmer = config["programmer"],
     deps = [
         "//tests/arduino:Arduino_impl",
         "//tests/arduino:Arduino_interface",
     ],
 ) for config in configs]
-

@@ -1,4 +1,5 @@
 load("@py_deps//:requirements.bzl", "requirement")
+load("@rules_python//python:defs.bzl", "py_binary")
 
 package(
     default_visibility = ["//visibility:public"],
@@ -9,7 +10,7 @@ py_binary(
     srcs = ["template_renderer.py"],
     deps = [
         requirement("jinja2"),
-    ]
+    ],
 )
 
 filegroup(

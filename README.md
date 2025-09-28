@@ -17,17 +17,16 @@ libraries into a directory structure compatible with the PlatformIO build
 system and then execute the build via PlatformIO.
 
 In order to do this, the rules execute couple of commands which must already be
-present on the system.  The following commands are required:
+present on the system. The following commands are required:
 
-*   /bin/cp
-*   /usr/bin/zip
-*   /usr/bin/unzip
-*   /usr/local/bin/platformio
+- /bin/cp
+- /usr/bin/zip
+- /usr/bin/unzip
+- /usr/local/bin/platformio
 
 The first three ar usually available on any linux system. The platformio
 command is added by [installing
 PlatformIO](http://docs.platformio.org/en/latest/installation.html).
-
 
 ## Setup - Bzlmod
 
@@ -37,7 +36,8 @@ In order to use these Bazel rules, you must add this repository as a `bazel_dep`
 ### Modify the MODULE file
 
 See [Releases](https://github.com/mum4k/platformio_rules/releases) for the most up to date version to update sha256.
-*Below example targets commit `73bca0dbb0942f8c275721269a9c3c6b581e6868`*
+_Below example targets commit `73bca0dbb0942f8c275721269a9c3c6b581e6868`_
+
 ```
 bazel_dep(name = "platformio_rules", repo_name = "platformio_rules")
 archive_override(
@@ -47,7 +47,6 @@ archive_override(
     url = "https://github.com/mum4k/platformio_rules/archive/73bca0dbb0942f8c275721269a9c3c6b581e6868.tar.gz",
 )
 ```
-
 
 ## Setup - WORKSPACE
 
@@ -97,8 +96,8 @@ load(
 
 The following rules are defined for PlatformIO:
 
-*  platformio_library
-*  platformio_project
+- platformio_library
+- platformio_project
 
 See the [generated documentation](docs/platformio_doc.md).
 

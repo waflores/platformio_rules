@@ -7,8 +7,8 @@ form.
 
 It has two modes of operation:
 
-*  Intro mode.
-*  Button press counting mode.
+- Intro mode.
+- Button press counting mode.
 
 ## The intro mode
 
@@ -32,12 +32,14 @@ count will be displayed in binary form using the Leds.
 ### The breadboard
 
 #### On Arduino Mega
+
 ![The binary counter breadboard](doc/binary_counter_mega_bb.png)
 
 The [Fritzing](http://fritzing.org) circuit is stored in file
 [binary_counter.fzz](doc/binary_counter_mega.fzz).
 
 #### On Arduino Nano
+
 ![The binary counter breadboard](doc/binary_counter_nano_bb.png)
 
 The [Fritzing](http://fritzing.org) circuit is stored in file

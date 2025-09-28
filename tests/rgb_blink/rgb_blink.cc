@@ -16,11 +16,11 @@ RGBLed led(48);
 
 void setup() {}
 
-void loop () {
-    led.SetColor(255,0,0);
-    delay(500);
-    led.SetColor(0,255,0);
-    delay(500);
-    led.SetColor(0,0,255);
-    delay(500);
+void loop() {
+  led.SetColor(255, 0, 0);
+  delay(500);
+  led.SetColor(0, 255, 0);
+  delay(500);
+  led.SetColor(0, 0, 255);
+  delay(500);
 }

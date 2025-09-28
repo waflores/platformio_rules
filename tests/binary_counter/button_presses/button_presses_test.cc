@@ -14,8 +14,8 @@
 
 #include "tests/binary_counter/button_presses/button_presses.h"
 
-#include "gmock/gmock.h"
 #include "tests/arduino/arduino_interface_mock.h"
+#include "gmock/gmock.h"
 #include "gtest/gtest.h"
 
 namespace binary_counter {

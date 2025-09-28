@@ -20,8 +20,8 @@
 
 #include <stdint.h>
 
-#include "gmock/gmock.h"
 #include "tests/arduino/arduino_interface.h"
+#include "gmock/gmock.h"
 
 namespace arduino {
 

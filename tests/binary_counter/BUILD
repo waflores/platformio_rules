@@ -45,9 +45,9 @@ configs = [
     name = "binary_counter_%s" % config["name"],
     src = "binary_counter.cc",
     board = config["board"],
+    build_flags = config["build_flags"],
     framework = "arduino",
     platform = "atmelavr",
-    build_flags = config["build_flags"],
     deps = [
         "//tests/arduino:Arduino_impl",
         "//tests/arduino:Arduino_interface",

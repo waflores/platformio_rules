@@ -14,8 +14,8 @@
 
 #include "tests/binary_counter/led_display/led_display.h"
 
-#include "gmock/gmock.h"
 #include "tests/arduino/arduino_interface_mock.h"
+#include "gmock/gmock.h"
 #include "gtest/gtest.h"
 
 namespace binary_counter {
@@ -28,8 +28,8 @@ const int kLed2Pin = 2;
 const int kLed3Pin = 3;
 const int kLed4Pin = 4;
 
-using ::testing::InSequence;
 using arduino::MockArduinoInterface;
+using ::testing::InSequence;
 
 class LedDisplayTest : public ::testing::Test {
 protected:

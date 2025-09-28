@@ -12,6 +12,8 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+load("@rules_cc//cc:cc_library.bzl", "cc_library")
+load("@rules_cc//cc:cc_test.bzl", "cc_test")
 load("//platformio:platformio.bzl", "platformio_library")
 
 package(
@@ -36,8 +38,8 @@ cc_test(
     srcs = ["button_presses_test.cc"],
     deps = [
         ":button_presses",
-        "@com_google_googletest//:gtest_main",
         "//tests/arduino:arduino_interface_mock",
+        "@com_google_googletest//:gtest_main",
     ],
 )
 

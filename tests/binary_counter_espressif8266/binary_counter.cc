@@ -26,9 +26,9 @@
 using arduino::ArduinoImpl;
 using arduino::ArduinoInterface;
 using binary_counter::CountButtonPresses;
-using binary_counter::kMaximumDecimal;
 using binary_counter::kDefaultDebounceDelayMs;
 using binary_counter::kDefaultTimeoutMs;
+using binary_counter::kMaximumDecimal;
 using binary_counter::LedDisplay;
 using binary_counter::LedPins;
 
