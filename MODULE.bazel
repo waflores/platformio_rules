@@ -21,25 +21,7 @@ http_archive = use_repo_rule("@bazel_tools//tools/build_defs/repo:http.bzl", "ht
 
 # Google testing and mocking framework for C++.
 bazel_dep(name = "googletest", version = "1.17.0.bcr.1")
-
-# Stardoc, documentation generator for custom Bazel rules.
-http_archive(
-    name = "io_bazel_rules_sass",
-    sha256 = "05db38271919d3d209a9f58db412a5bf2af2def7d4c1fae17b401dccbad97178",
-    strip_prefix = "rules_sass-1.57.0",
-    url = "https://github.com/bazelbuild/rules_sass/archive/1.57.0.zip",
-)
 bazel_dep(name = "bazel_skylib", version = "1.8.2")
-
-############### Load backwards compatible dependencies ###############
-# Most of these are not actually necessary, but we should load them to keep deps somewhat consistent
-p = use_extension("//bazel:deps.bzl", "platformio_rules_dependencies")
-
-pt = use_extension("//bazel:transitive.bzl", "platformio_rules_transitive_dependencies")
-
-ptt = use_extension("//bazel:pip_parse.bzl", "platformio_rules_pip_parse_dependencies")
-
-pttt = use_extension("//bazel:pip_install.bzl", "platformio_rules_pip_install_dependencies")
 
 # Hedron's Compile Commands Extractor for Bazel
 # https://github.com/hedronvision/bazel-compile-commands-extractor
@@ -51,4 +33,3 @@ git_override(
     # Replace the commit hash (above) with the latest (https://github.com/hedronvision/bazel-compile-commands-extractor/commits/main).
     # Even better, set up Renovate and let it do the work for you (see "Suggestion: Updates" in the README).
 )
-# bazel run @hedron_compile_commands//:refresh_all
