@@ -1,4 +1,7 @@
-build --verbose_failures
+common --enable_platform_specific_config --repo_env=LC_ALL="en_US.UTF-8"
+common --show_timestamps --verbose_failures
+common --enable_bzlmod --noenable_workspace
+
 
 # This is so we don't use sandboxed execution. Sandboxed execution
 # runs stuff in a container, and since Travis already runs its script
@@ -6,4 +9,5 @@ build --verbose_failures
 # fails to run tests.
 build --spawn_strategy=standalone --genrule_strategy=standalone
 test --test_strategy=standalone
-common --enable_bzlmod --noenable_workspace
+
+common:windows --enable_runfiles # https://github.com/bazelbuild/bazel/issues/8843
