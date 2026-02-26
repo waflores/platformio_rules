@@ -228,9 +228,9 @@ packaging==25.0 \
     --hash=sha256:29572ef2b1f17581046b3a2227d5c611fb25ec70ca1ba8554b24b0e69331a484 \
     --hash=sha256:d443872c98d677bf60f6a1f2f8c1cb748e8fe762d2bf9d3148b5599295b0fc4f
     # via marshmallow
-platformio==6.1.18 \
-    --hash=sha256:6ea19c66fba3c5272378afa6ae11abbf883243dd8e503ac5f4ff8ac277ccc7c6 \
-    --hash=sha256:94ef70a242ddcb93e020b0250c4f61e65b347411e8dfe36f79efb759c09324fa
+platformio==6.1.19 \
+    --hash=sha256:4f93b00cf2759035d76ebece4840a3274096f7343ee5bba56cbc0bc3ce2eb6f5 \
+    --hash=sha256:7b53eaa36fcba554411b669eab845626da7c4b90fa6aaee9fe9f1875d82f5f54
     # via -r requirements.in
 pyelftools==0.32 \
     --hash=sha256:013df952a006db5e138b1edf6d8a68ecc50630adbd0d83a2d41e7f846163d738 \
