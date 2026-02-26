@@ -35,18 +35,16 @@ def main() -> int:
     substitutions = json.loads(sys.argv[3])
 
     # Read template file
-    template_file = open(template_filename, "r")
-    template_str = template_file.read()
-    template_file.close()
+    with open(template_filename, encoding="utf-8") as template_file:
+        template_str = template_file.read()
 
     # Render template
     template = jinja2.Environment().from_string(template_str)
     rendered_str = template.render(substitutions)
 
     # Write output to desired file
-    output_file = open(output_filename, "w")
-    output_file.write(rendered_str)
-    output_file.close()
+    with open(output_filename, "w", encoding="utf-8") as output_file:
+        output_file.write(rendered_str)
 
     return 0
 
