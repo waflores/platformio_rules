@@ -18,6 +18,8 @@ _ADDITIONAL_FILENAME = "lib/{dirname}/{filename}"
 # that the zipped path starts at lib/. It will return to the original directory
 # when finishing the command.
 _ZIP_COMMAND = "cd {output_dir} && zip -qq -r -u {zip_filename} lib/; cd -"
+# We should use: @bazel_tools//tools/zip:zipper
+
 
 def _platformio_library_impl(ctx):
     """Collects all transitive dependencies and emits the zip output.
@@ -87,6 +89,8 @@ def _platformio_library_impl(ctx):
         inputs = inputs,
         outputs = outputs,
         command = "\n".join(commands),
+        # XXX: We need to add /usr/bin to the PATH
+        env = {"PATH": "/bin:/usr/bin:/usr/local/bin:/usr/sbin:/sbin"}
     )
 
     # Collect the zip files produced by all transitive dependancies.

@@ -1,2 +1,3 @@
 jinja2
+click
 platformio==6.1.19

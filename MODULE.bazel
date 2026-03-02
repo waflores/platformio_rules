@@ -51,3 +51,32 @@ git_override(
     remote = "https://github.com/hedronvision/bazel-compile-commands-extractor.git",
 )
 # bazel run @hedron_compile_commands//:refresh_all
+
+# https://github.com/bazelbuild/rules_pkg
+# ^We could try using this for zip or do something else
+
+# https://github.com/bazelbuild/bazel/blob/c81d8ebcae859e49a4ea77e7f22a814087c0d87a/tools/zip/BUILD
+# ^This is the internal zipper tooling
+# PS C:\Users\Will\PycharmProjects\Bazel\platformio_rules> bazelisk cquery --output=files @bazel_tools//tools/zip:zipper
+# (12:39:37) INFO: Current date is 2026-03-01
+# (12:39:37) INFO: Analyzed target @@bazel_tools//tools/zip:zipper (3 packages loaded, 9 targets configured).
+# (12:39:37) INFO: Found 1 target...
+# external/bazel_tools/tools/zip/zipper/zipper.exe
+# (12:39:37) INFO: Elapsed time: 0.645s, Critical Path: 0.00s
+# (12:39:37) INFO: 0 processes.
+# (12:39:37) INFO: Build completed successfully, 0 total actions
+
+# PS C:\Users\Will\PycharmProjects\Bazel\platformio_rules> & ".\bazel-platformio_rules\external\bazel_tools\tools\zip\zipper\zipper.exe"
+# Usage: C:\Users\Will\PycharmProjects\Bazel\platformio_rules\bazel-platformio_rules\external\bazel_tools\tools\zip\zipper\zipper.exe [vxc[fC]] x.zip [-d exdir] [[zip_path1=]file1 ... [zip_pathn=]filen]
+#   v verbose - list all file in x.zip
+#   x extract - extract files in x.zip to current directory, or     an optional directory relative to the current directory     specified through -d option
+#   c create  - add files to x.zip
+#   f flatten - flatten files to use with create or extract operation
+#   C compress - compress files when using the create operation
+# x and c cannot be used in the same command-line.
+
+# For every file, a path in the zip can be specified. Examples:
+#   zipper c x.zip a/b/__init__.py= # Add an empty file at a/b/__init__.py
+#   zipper c x.zip a/b/main.py=foo/bar/bin.py # Add file foo/bar/bin.py at a/b/main.py
+
+# If the zip path is not specified, it is assumed to be the file path.
