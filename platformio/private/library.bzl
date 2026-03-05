@@ -2,7 +2,7 @@
 Breaking out the modules in their own files
 """
 
-load("//platformio/private:defs.bzl", "PlatformIOLibraryInfo", "COPY_COMMAND")
+load("//platformio/private:defs.bzl", "COPY_COMMAND", "PlatformIOLibraryInfo")
 
 # The relative filename of the header file.
 _HEADER_FILENAME = "lib/{dirname}/{filename}.h"
@@ -19,7 +19,6 @@ _ADDITIONAL_FILENAME = "lib/{dirname}/{filename}"
 # when finishing the command.
 _ZIP_COMMAND = "cd {output_dir} && zip -qq -r -u {zip_filename} lib/; cd -"
 # We should use: @bazel_tools//tools/zip:zipper
-
 
 def _platformio_library_impl(ctx):
     """Collects all transitive dependencies and emits the zip output.
@@ -90,10 +89,10 @@ def _platformio_library_impl(ctx):
         outputs = outputs,
         command = "\n".join(commands),
         # XXX: We need to add /usr/bin to the PATH
-        env = {"PATH": "/bin:/usr/bin:/usr/local/bin:/usr/sbin:/sbin"}
+        env = {"PATH": "/bin:/usr/bin:/usr/local/bin:/usr/sbin:/sbin"},
     )
 
-    # Collect the zip files produced by all transitive dependancies.
+    # Collect the zip files produced by all transitive dependencies.
     transitive_zip_files = [
         dep[PlatformIOLibraryInfo].default_runfiles
         for dep in ctx.attr.deps
@@ -108,6 +107,8 @@ def _platformio_library_impl(ctx):
         default_runfiles = runfiles,
         transitive_libdeps = transitive_libdeps,
     )
+
+# Why do we need to zip anything?
 
 platformio_library = rule(
     implementation = _platformio_library_impl,
@@ -124,22 +125,16 @@ platformio_library = rule(
         "add_hdrs": attr.label_list(
             allow_files = [".h", ".hpp"],
             allow_empty = True,
-            doc = """
-A list of labels, additional header files to include in the resulting zip file.
-""",
+            doc = """A list of labels, additional header files to include in the resulting zip file.""",
         ),
         "add_srcs": attr.label_list(
             allow_files = [".c", ".cc", ".cpp"],
             allow_empty = True,
-            doc = """
-A list of labels, additional source files to include in the resulting zip file.
-""",
+            doc = """A list of labels, additional source files to include in the resulting zip file.""",
         ),
         "deps": attr.label_list(
             providers = [DefaultInfo, PlatformIOLibraryInfo],
-            doc = """
-A list of Bazel targets, other platformio_library targets that this one depends on.
-""",
+            doc = """A list of Bazel targets, other platformio_library targets that this one depends on.""",
         ),
         "lib_deps": attr.string_list(
             allow_empty = True,
@@ -155,9 +150,7 @@ indirectly link this library.
             default = Label("//tools:platformio"),
             executable = True,
             cfg = "exec",
-            doc = """
-A label to a platformio python executable to run commands against.
-            """,
+            doc = """A label to a platformio python executable to run commands against.""",
         ),
     },
     doc = """

@@ -29,5 +29,6 @@ bzl_library(
         "//platformio/private:library.bzl",
         "//platformio/private:project.bzl",
         "//platformio/private:upload.bzl",
+        "//tools:platformio",
     ],
 )
